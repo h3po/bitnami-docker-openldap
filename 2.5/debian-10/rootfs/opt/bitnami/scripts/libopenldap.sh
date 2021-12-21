@@ -173,7 +173,7 @@ is_ldap_not_running() {
 #   None
 #########################
 ldap_start_bg() {
-    local -a flags=("-h" "ldap://:${LDAP_PORT_NUMBER}/ ldapi:/// " "-F" "${LDAP_CONF_DIR}/slapd.d")
+    local -a flags=("-h" "pldap://:${LDAP_PORT_NUMBER}/ ldapi:/// " "-F" "${LDAP_CONF_DIR}/slapd.d")
     if is_ldap_not_running; then
         info "Starting OpenLDAP server in background"
         ulimit -n "$LDAP_ULIMIT_NOFILES"
